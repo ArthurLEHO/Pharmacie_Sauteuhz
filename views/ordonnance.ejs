@@ -1,0 +1,25 @@
+<%- include('header') %>
+
+<h1>Affichage : </h1>
+
+<div>
+
+    <ul> <% ordonnance.forEach(function(res){ %>
+
+        <li>
+            
+            <div>Ordonnance : <%= res.Ordonnance_Id %> </div>
+            <div>Medecin : <%= res.Ordonnance_IdMedecin %> </div>
+            <div>Patient : <%= res.Ordonnance_IdPatient %> </div>
+            <div>Maladie : <%= res.Ordonnance_IdMaladie %> </div>
+            <div>Date : <%= res.Ordonnance_Date %> </div>
+
+        </li>
+
+        <% })%>
+
+    </ul>
+
+</div>
+
+<%- include('footer') %>
