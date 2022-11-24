@@ -1,0 +1,60 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>541</x><y>50</y><w>150</w><h>110</h></coordinates><panel_attributes>Pharmacien
+--
+- id: int
+- nom: string
+- prenom: string
+- nomUtilisateur : string
+- motDePasse: string
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>571</x><y>270</y><w>100</w><h>110</h></coordinates><panel_attributes>Ordonnance
+--
+- id: int
+- medecin: int
+- patient: int
+- maladie : int
+- date: string
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>851</x><y>160</y><w>130</w><h>110</h></coordinates><panel_attributes>Médecin
+--
+- id: int
+- nom: string
+- prenom: string
+- telephone : string
+- diplome: int
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>661</x><y>210</y><w>210</w><h>140</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;120;190;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1071</x><y>190</y><w>80</w><h>60</h></coordinates><panel_attributes>Diplôme
+--
+- id: int
+- ordre: bool
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>971</x><y>200</y><w>120</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;100;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>811</x><y>400</y><w>110</w><h>110</h></coordinates><panel_attributes>Posologie
+--
+- id: int
+- ordonnance: int
+- medicament: int
+- duree : int
+- quantite: int
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>661</x><y>320</y><w>170</w><h>160</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;150;140</additional_attributes></element><element><id>UMLClass</id><coordinates><x>281</x><y>460</y><w>90</w><h>60</h></coordinates><panel_attributes>Maladie
+--
+- id: int
+- nom: string
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>161</x><y>180</y><w>120</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;100;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1071</x><y>400</y><w>120</w><h>110</h></coordinates><panel_attributes>Médicament
+--
+- id: int
+- nom: string
+- fabriquant: string
+- stock : int
+- prix: float
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>911</x><y>440</y><w>180</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;160;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>261</x><y>130</y><w>130</w><h>140</h></coordinates><panel_attributes>Patient
+--
+- id: int
+- nom: string
+- prenom: string
+- naissance: string
+- securite: string
+- telephone : string
+- mutuelle: int
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>381</x><y>190</y><w>210</w><h>160</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;190;140</additional_attributes></element><element><id>UMLClass</id><coordinates><x>81</x><y>170</y><w>90</w><h>60</h></coordinates><panel_attributes>Mutuelle
+--
+- id: int
+- nom: string
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>361</x><y>320</y><w>230</w><h>190</h></coordinates><panel_attributes></panel_attributes><additional_attributes>210;10;10;170</additional_attributes></element></diagram>

@@ -2,24 +2,26 @@ const modelOrdonnance = require('../models/modelOrdonnance');
 
 const controllerOrdonnance = {
 	
-	async homeOrdonnance(req, res) {
+	async affichageOrdonnance(req, res){
 
 		try {
 
-			let data = await modelOrdonnance.AfficherOrdonnance
+			const data = await modelOrdonnance.Ordonnances.afficherOrdonnances();
 
-			if (data) {
-				console.log(data)
-				res.render("ordonnance", { ordonnance: data })
-			} else {
-				res.render("ordonnance", { ordonnance: {} })
+			if(data){
+
+				res.render("ordonnance", {dataOrdonnance: data})
+
+			}else{
+
+				res.render("ordonnance", {dataOrdonnance: {} })
 			}
 
 		} catch (error) {
+
 			console.log(error)
 		}
 	}
-
 }
 
 module.exports = controllerOrdonnance

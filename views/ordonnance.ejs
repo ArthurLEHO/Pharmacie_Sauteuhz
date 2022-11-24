@@ -1,18 +1,16 @@
 <%- include('header') %>
 
-<h1>Affichage : </h1>
-
 <div>
 
-    <ul> <% ordonnance.forEach(function(res){ %>
-
+    <ul> <% dataOrdonnance.forEach(function(data){ %>
+        
         <li>
             
-            <div>Ordonnance : <%= res.Ordonnance_Id %> </div>
-            <div>Medecin : <%= res.Ordonnance_IdMedecin %> </div>
-            <div>Patient : <%= res.Ordonnance_IdPatient %> </div>
-            <div>Maladie : <%= res.Ordonnance_IdMaladie %> </div>
-            <div>Date : <%= res.Ordonnance_Date %> </div>
+            <div>Ordonnance : <%= data.Ordonnance_Id %> </div>
+            <div>Medecin : <%= data.Ordonnance_IdMedecin %> </div>
+            <div>Patient : <%= data.Ordonnance_IdPatient %> </div>
+            <div>Maladie : <%= data.Ordonnance_IdMaladie %> </div>
+            <div>Date : <%= data.Ordonnance_Date %> </div>
 
         </li>
 

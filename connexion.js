@@ -2,27 +2,26 @@ const mysql2 = require('mysql2')
 const iniparser = require('iniparser')
 let configDB = iniparser.parseSync('./DB.ini')
 
-function connecter(){
+const connexion = {
 
-    let mysqlconnexion = mysql2.createConnection({
+    async connecter(){
 
-        host:configDB['dev']['host'],
-        user:configDB['dev']['user'],
-        password:configDB['dev']['password'],
-        database:configDB['dev']['database']
-    
-    })
+        let mysqlconnexion = mysql2.createConnection({
 
-    mysqlconnexion.connect((err) => {
+            host:configDB['dev']['host'],
+            user:configDB['dev']['user'],
+            password:configDB['dev']['password'],
+            database:configDB['dev']['database']
+        
+        });
 
-        if (!err) console.log('BDD connectée.')
-        else console.log('BDD connexion échouée \n Erreur: '+JSON.stringify(err))
+        mysqlconnexion.connect((err) => {
 
-    })
+            if (!err) console.log('BDD connectée.')
+            else console.log('BDD connexion échouée \n Erreur: '+JSON.stringify(err))
+
+        })
+    }
 }
 
-module.export = {
-    
-    connecter
-
-}
+module.exports = connexion
