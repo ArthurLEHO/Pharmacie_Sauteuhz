@@ -6,21 +6,21 @@
         
         <br>
 
-        <form action = "/medecin/ajouterMedecin" method = "POST" enctype = "application/x-www-form-urlencoded">
+        <form action = "/medecin/ajouterMedecin" method = "POST" enctype = "application/x-www-form-urlencoded" id = "formulaire">
 
             <div>
     
                 <label for = "nom"> Nom : </label>
-                <input type = "text" name = "nom" id = "nom">
+                <input type = "text" name = "nom" id = "nom" required>
 
                 <label for = "prenom"> Prénom : </label>
-                <input type = "text" name = "prenom" id = "prenom">
+                <input type = "text" name = "prenom" id = "prenom" required>
 
                 <label for = "numero"> Numéro de téléphone : </label>
-                <input type = "text" name = "numero" id = "numero">
+                <input type = "text" name = "numero" id = "numero" required>
 
                 <label for = "diplome"> Diplôme </label>
-                <select name = "diplome" id = "diplome">
+                <select name = "diplome" id = "diplome" required>
 
                     <option value = "1"> 1 </option>
                     <option value = "2"> 2 </option>
@@ -30,14 +30,69 @@
             </div>
 
             <br>
-            <button type = "submit"><div>Envoyer</div></button>
-    
+
         </form>
+
+        <button onclick = "verification()">Envoyer</button>
 
         <br>
 
     </div>
 
+    <script>
+
+        function verification(){
+            
+            let nom = document.getElementById('nom')
+            let prenom = document.getElementById('prenom')
+            let numero = document.getElementById('numero')
+            let submit = document.getElementById('formulaire')
+
+            //Tests unitaires
+            if(numero.value != "" && nom.value != "" && prenom.value != ""){ //Champs remplis
+
+                if(/^-?\d+$/.test(numero.value)){ //Champ numéro composé uniquement de chiffres
+
+                    if(numero.value.length == 10){ //Champ numéro composé de 10 chiffres
+
+                        if(!/^[A-Za-z]+$/.test(nom)){ //Champ nom composé uniquement de lettres
+
+                            if(!/^[A-Za-z]+$/.test(prenom)){ //Champ prénom composé uniquement de lettres
+
+                                submit.submit()
+
+                            }else{
+
+                                prenom.style.background = "red"
+                                alert("Le prénom ne doit pas contenir de caractères spéciaux")
+                            }
+                        }else{
+
+                            nom.style.background = "red"
+                            alert("Le nom ne doit pas contenir de caractères spéciaux")
+                        }
+                    }else{
+
+                        numero.style.background = "red"
+                        alert("Le numéro de téléphone doit comporter exactement 10 chiffres")
+                    }
+                }else{
+
+                    numero.style.background = "red"
+                    alert("Le numéro de téléphone ne doit être composé que de chiffres")
+                }
+            }else{
+
+                if(numero.value == ""){numero.style.background = "red"}
+                if(nom.value == ""){nom.style.background = "red"}
+                if(prenom.value == ""){prenom.style.background = "red"}
+                alert("Veuillez remplir tous les champs")
+            }
+        } 
+
+    </script>
+
+    <br>
     <a href="http://localhost:3000/"> Accueil </a>
 
 </div>

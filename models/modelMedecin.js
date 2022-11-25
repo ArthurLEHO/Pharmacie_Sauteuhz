@@ -67,14 +67,6 @@ const Medecins = {
         let numero = req.body.numero
         let diplome = req.body.diplome
 
-        //Tests sur la validité des champs
-        if(!isNaN(numero) && numero.length != 10){return}
-
-        if(!(/^[/s]+$/.test(nom) && /^[/s]+$/.test(prenom))){return} 
-
-        if(nom == "" || prenom == ""){return}
-
-
         let requeteSQL = "INSERT INTO medecin (Medecin_Nom, Medecin_Prenom, Medecin_NumeroTelephone, Medecin_IdDiplome) VALUES(?,?,?,?)"
 
         return new Promise((resolve, reject)=>{
@@ -121,13 +113,6 @@ const Medecins = {
         let prenom = req.body.prenom
         let numero = req.body.numero
         let diplome = req.body.diplome
-
-        //Tests sur la validité des champs
-        if(!isNaN(numero) && numero.length != 10){return}
-
-        if(!(/^[/s]+$/.test(nom) && /^[/s]+$/.test(prenom))){return} 
-
-        if(nom == "" || prenom == ""){return}
         
         let requeteSQL = "UPDATE medecin SET Medecin_Nom = ?, Medecin_Prenom = ?, Medecin_NumeroTelephone = ?, Medecin_IdDiplome = ? WHERE Medecin_Id = ?"
         
