@@ -1,0 +1,29 @@
+<%- include('header') %>
+
+<div>
+
+    <ul> <% dataMedecin.forEach(function(data){ %>
+        
+        <li>
+            
+            <div>Id : <%= data.Medecin_Id %> </div>
+            <div>Nom : <%= data.Medecin_Nom %> </div>
+            <div>Prenom : <%= data.Medecin_Prenom %> </div>
+            <div>Telephone : <%= data.Medecin_NumeroTelephone %> </div>
+            <div>Diplome : <%= data.Medecin_IdDiplome %> </div>
+
+            <div>----------------------------------------------</div>
+
+        </li>
+
+        <% })%>
+
+    </ul>
+
+    <div><a href="http://localhost:3000/medecin/ajouter"> Ajouter un medecin </a></div>
+
+    <a href="http://localhost:3000/"> Accueil </a>
+
+</div>
+
+<%- include('footer') %>

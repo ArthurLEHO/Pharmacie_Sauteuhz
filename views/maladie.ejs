@@ -1,0 +1,24 @@
+<%- include('header') %>
+
+<div>
+
+    <ul> <% dataMaladie.forEach(function(data){ %>
+        
+        <li>
+            
+            <div>Id : <%= data.Maladie_Id %> </div>
+            <div>Nom : <%= data.Maladie_Nom %> </div>
+
+            <div>----------------------------------------------</div>
+
+        </li>
+
+        <% })%>
+
+    </ul>
+
+    <a href="http://localhost:3000/"> Accueil </a>
+
+</div>
+
+<%- include('footer') %>

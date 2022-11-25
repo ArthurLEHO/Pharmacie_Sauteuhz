@@ -13,17 +13,18 @@ let mysqlconnexion = mysql2.createConnection({
 
 mysqlconnexion.connect((err) => {
 
-    if (err) console.log('BDD connexion échouée \n Erreur: '+JSON.stringify(err))
+    if (!err) console.log('BDD connectée.')
+    else console.log('BDD connexion échouée \n Erreur: '+JSON.stringify(err))
 
 })
 
-const Ordonnances = {
+const Patients = {
 
-    async afficherOrdonnances(){
+    async afficherPatients(){
 
         return new Promise((resolve, reject)=>{
 
-            mysqlconnexion.query("SELECT * FROM ordonnance",  (error, elements)=>{
+            mysqlconnexion.query("SELECT * FROM patient",  (error, elements)=>{
 
                 if(error){
 
@@ -40,5 +41,5 @@ const Ordonnances = {
 
 module.exports = {
     
-    Ordonnances
+    Patients
 }

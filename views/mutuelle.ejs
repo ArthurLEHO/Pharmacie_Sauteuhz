@@ -1,0 +1,25 @@
+<%- include('header') %>
+
+<div>
+
+    <ul> <% dataMutuelle.forEach(function(data){ %>
+        
+        <li>
+            
+            <div>Id : <%= data.Mutuelle_Id %> </div>
+            <div>Nom : <%= data.Mutuelle_Nom %> </div>
+            <div>Taux : <%= data.Mutuelle_Taux %> </div>
+
+            <div>----------------------------------------------</div>
+
+        </li>
+
+        <% })%>
+
+    </ul>
+
+    <a href="http://localhost:3000/"> Accueil </a>
+
+</div>
+
+<%- include('footer') %>

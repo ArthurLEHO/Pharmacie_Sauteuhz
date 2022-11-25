@@ -1,0 +1,27 @@
+<%- include('header') %>
+
+<div>
+
+    <ul> <% dataMedicament.forEach(function(data){ %>
+        
+        <li>
+            
+            <div>Id : <%= data.Medicament_Id %> </div>
+            <div>Nom : <%= data.Medicament_Nom %> </div>
+            <div>Fabricant : <%= data.Medicament_Fabriquant %> </div>
+            <div>Stock : <%= data.Medicament_Stock %> </div>
+            <div>Prix : <%= data.Medicament_Prix %> </div>
+
+            <div>----------------------------------------------</div>
+
+        </li>
+
+        <% })%>
+
+    </ul>
+
+    <a href="http://localhost:3000/"> Accueil </a>
+
+</div>
+
+<%- include('footer') %>

@@ -17,13 +17,13 @@ mysqlconnexion.connect((err) => {
 
 })
 
-const Ordonnances = {
+const Mutuelles = {
 
-    async afficherOrdonnances(){
+    async afficherMutuelles(){
 
         return new Promise((resolve, reject)=>{
 
-            mysqlconnexion.query("SELECT * FROM ordonnance",  (error, elements)=>{
+            mysqlconnexion.query("SELECT * FROM mutuelle",  (error, elements)=>{
 
                 if(error){
 
@@ -40,5 +40,5 @@ const Ordonnances = {
 
 module.exports = {
     
-    Ordonnances
+    Mutuelles
 }
