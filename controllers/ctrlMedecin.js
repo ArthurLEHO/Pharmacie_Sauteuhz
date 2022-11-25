@@ -1,4 +1,3 @@
-const { urlencoded } = require('express');
 const modelMedecin = require('../models/modelMedecin');
 
 const controllerMedecin = {

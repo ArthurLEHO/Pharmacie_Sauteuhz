@@ -128,7 +128,7 @@ const Medecins = {
         if(!(/^[/s]+$/.test(nom) && /^[/s]+$/.test(prenom))){return} 
 
         if(nom == "" || prenom == ""){return}
-
+        
         let requeteSQL = "UPDATE medecin SET Medecin_Nom = ?, Medecin_Prenom = ?, Medecin_NumeroTelephone = ?, Medecin_IdDiplome = ? WHERE Medecin_Id = ?"
         
         return new Promise((resolve, reject)=>{
