@@ -21,7 +21,7 @@ const Medecins = {
 
     async afficherMedecins(){
 
-        return new Promise((resolve, reject)=>{
+        return new Promise((resolve, reject) => {
 
             let requeteSQL = "SELECT * FROM medecin"
 
@@ -41,11 +41,12 @@ const Medecins = {
 
     async afficherUnMedecin(req){
 
+        let id = req.params.id
+        let requeteSQL = "SELECT * FROM medecin WHERE Medecin_Id = ?"
+
         return new Promise((resolve, reject)=>{
 
-            let requeteSQL = "SELECT * FROM medecin WHERE Medecin_Id = " + req.params.id
-
-            mysqlconnexion.query(requeteSQL, (err, lignes) => {
+            mysqlconnexion.query(requeteSQL, [id], (err, lignes) => {
 
                 if(err){
 
@@ -61,12 +62,24 @@ const Medecins = {
 
     async ajouterMedecin(req){
 
-        let requeteSQL = "INSERT INTO medecin (Medecin_Nom, Medecin_Prenom, Medecin_NumeroTelephone, Medecin_IdDiplome)"
-        requeteSQL += 'VALUES("' + req.body.nom + '","' + req.body.prenom + '","' + req.body.numero + '",' + req.body.diplome + ')'
+        let nom = req.body.nom
+        let prenom = req.body.prenom
+        let numero = req.body.numero
+        let diplome = req.body.diplome
+
+        //Tests sur la validité des champs
+        if(!isNaN(numero) && numero.length != 10){return}
+
+        if(!(/^[/s]+$/.test(nom) && /^[/s]+$/.test(prenom))){return} 
+
+        if(nom == "" || prenom == ""){return}
+
+
+        let requeteSQL = "INSERT INTO medecin (Medecin_Nom, Medecin_Prenom, Medecin_NumeroTelephone, Medecin_IdDiplome) VALUES(?,?,?,?)"
 
         return new Promise((resolve, reject)=>{
 
-            mysqlconnexion.query(requeteSQL, (err, lignes, champs) => {
+            mysqlconnexion.query(requeteSQL, [nom, prenom, numero, diplome], (err, lignes, champs) => {
 
                 if(err){
 
@@ -82,11 +95,12 @@ const Medecins = {
 
     async supprimerMedecin(req){ 
         
-        let requeteSQL = "DELETE FROM medecin WHERE Medecin_Id = " + req.params.id
+        let id = req.params.id
+        let requeteSQL = "DELETE FROM medecin WHERE Medecin_Id = ?"
 
         return new Promise((resolve, reject)=>{
 
-            mysqlconnexion.query(requeteSQL, (err, lignes, champs) => {
+            mysqlconnexion.query(requeteSQL, [id], (err, lignes, champs) => {
 
                 if(err){
 
@@ -107,6 +121,13 @@ const Medecins = {
         let prenom = req.body.prenom
         let numero = req.body.numero
         let diplome = req.body.diplome
+
+        //Tests sur la validité des champs
+        if(!isNaN(numero) && numero.length != 10){return}
+
+        if(!(/^[/s]+$/.test(nom) && /^[/s]+$/.test(prenom))){return} 
+
+        if(nom == "" || prenom == ""){return}
 
         let requeteSQL = "UPDATE medecin SET Medecin_Nom = ?, Medecin_Prenom = ?, Medecin_NumeroTelephone = ?, Medecin_IdDiplome = ? WHERE Medecin_Id = ?"
         

@@ -1,3 +1,4 @@
+const { urlencoded } = require('express');
 const modelMedecin = require('../models/modelMedecin');
 
 const controllerMedecin = {
@@ -68,8 +69,8 @@ const controllerMedecin = {
 
 			}else{
 
-				console.log("erreur lors de l'ajout");
-				res.redirect("/medecin");
+				console.log("champs incorrects")
+				res.render("ajouterMedecin");
 			}
 
 		} catch (error) {
@@ -112,8 +113,9 @@ const controllerMedecin = {
 
 			}else{
 
-				console.log("erreur lors de l'ajout");
-				res.redirect("/medecin");
+				console.log("champs incorrects")
+				//res.redirect(encodeURIComponent("/medecin/modifierMedecin/" + req.params.id));
+				res.redirect("/medecin/modifierMedecin/" + req.params.id);
 			}
 
 		} catch (error) {
