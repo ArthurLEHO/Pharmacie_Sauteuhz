@@ -1,0 +1,46 @@
+<%- include('header') %>
+
+<div>
+
+    <div <% dataMedecin.forEach(function(data){ %>>
+        
+        <br>
+
+        <form action = "/medecin/modifierMedecin/<%= data.Medecin_Id %>" method = "POST" enctype = "application/x-www-form-urlencoded">
+
+            <div>
+
+                <label for = "nom"> Nom : </label>
+                <input type = "text" name = "nom" id = "nom" value = <%= data.Medecin_Nom %>>
+
+                <label for = "prenom"> Prénom : </label>
+                <input type = "text" name = "prenom" id = "prenom" value = <%= data.Medecin_Prenom %>>
+
+                <label for = "numero"> Numéro de téléphone : </label>
+                <input type = "text" name = "numero" id = "numero" value = <%= data.Medecin_NumeroTelephone %>>
+
+                <label for = "diplome"> Diplôme </label>
+                <select name = "diplome" id = "diplome">
+
+                    <option value = <%= data.Medecin_IdDiplome %>><%= data.Medecin_IdDiplome %></option>
+                    <option value = "1"> 1 </option>
+                    <option value = "2"> 2 </option>
+                
+                </select>
+    
+            </div>
+
+            <br>
+            <button type = "submit"><div>Envoyer</div></button>
+    
+        </form>
+
+        <br>
+
+    </div  <% })%>>
+
+    <a href="http://localhost:3000/"> Accueil </a>
+
+</div>
+
+<%- include('footer') %>

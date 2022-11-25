@@ -6,11 +6,18 @@
         
         <li>
             
-            <div>Id : <%= data.Medecin_Id %> </div>
+            <div><input type = 'text' value = '<%= data.Medecin_Id %>' disabled hidden> </div>
             <div>Nom : <%= data.Medecin_Nom %> </div>
             <div>Prenom : <%= data.Medecin_Prenom %> </div>
             <div>Telephone : <%= data.Medecin_NumeroTelephone %> </div>
             <div>Diplome : <%= data.Medecin_IdDiplome %> </div>
+
+            <div>
+
+                <a href = "http://localhost:3000/medecin/supprimerMedecin/<%=data.Medecin_Id%>"> &#10006; Supprimer </a> |
+                <a href = "http://localhost:3000/medecin/modifierMedecin/<%=data.Medecin_Id%>"> &#9998; Modifier </a>
+
+            </div>
 
             <div>----------------------------------------------</div>
 

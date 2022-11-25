@@ -23,6 +23,27 @@ const controllerMedecin = {
 		}
 	},
 
+	async affichageUnMedecin(req, res){
+
+		try {
+
+			const data = await modelMedecin.Medecins.afficherUnMedecin(req)
+
+			if(data){
+
+				res.render("modifierMedecin", {dataMedecin: data})
+
+			}else{
+
+				res.render("medecinMedecin", {dataMedecin: {} })
+			}
+
+		} catch (error) {
+
+			console.log(error)
+		}
+	},
+
 	redirectionMedecin(req, res){
 
 		try {
@@ -57,9 +78,49 @@ const controllerMedecin = {
 		}
 	},
 
-	
+	async supprimerMedecin(req, res){
 
+		try {
 
+			const data = await modelMedecin.Medecins.supprimerMedecin(req)
+
+			if(data){
+
+				res.redirect("/medecin");
+
+			}else{
+
+				console.log("erreur lors de l'ajout");
+				res.redirect("/medecin");
+			}
+
+		} catch (error) {
+
+			console.log(error)
+		}
+	},
+
+	async modifierMedecin(req, res){
+
+		try {
+
+			const data = await modelMedecin.Medecins.modifierMedecin(req)
+
+			if(data){
+
+				res.redirect("/medecin");
+
+			}else{
+
+				console.log("erreur lors de l'ajout");
+				res.redirect("/medecin");
+			}
+
+		} catch (error) {
+
+			console.log(error)
+		}
+	}
 }
 
 module.exports = controllerMedecin
