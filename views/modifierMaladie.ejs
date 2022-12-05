@@ -1,0 +1,31 @@
+<%- include('header') %>
+
+    <div>
+
+        <div <% dataMaladie.forEach(function(data){ %>>
+
+            <br>
+
+            <form action="/maladie/modifierMaladie/<%= data.Maladie_Id %>" method="POST" enctype="application/x-www-form-urlencoded">
+
+                <div>
+
+                    <label for="nom"> Nom : </label>
+                    <input type="text" name="nom" id="nom" value=<%=data.Maladie_Nom %>>
+
+                </div>
+
+                <br>
+                <button type="submit">
+                    <div>Envoyer</div>
+                </button>
+
+            </form>
+
+            <br>
+
+        </div <% })%>>
+
+    </div>
+
+    <%- include('footer') %>
