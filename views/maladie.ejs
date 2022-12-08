@@ -1,24 +1,33 @@
 <%- include('header') %>
 
-<div>
+    <div>
 
-    <ul> <% dataMaladie.forEach(function(data){ %>
-        
-        <li>
-            
-            <div>Id : <%= data.Maladie_Id %> </div>
-            <div>Nom : <%= data.Maladie_Nom %> </div>
+        <ul>
+            <% dataMaladie.forEach(function(data){ %>
 
-            <div>----------------------------------------------</div>
+                <li>
 
-        </li>
+                    <div>Id : <%= data.Maladie_Id %>
+                    </div>
+                    <div>Nom : <%= data.Maladie_Nom %>
+                    </div>
 
-        <% })%>
+                    <div>
 
-    </ul>
+                        <a href="http://localhost:3000/maladie/supprimerMaladie/<%=data.Maladie_Id%>"> ❌ Supprimer </a>
+                        <a href="http://localhost:3000/maladie/modifierMaladie/<%=data.Maladie_Id%>"> ⚙ Modifier </a>
 
-    <a href="http://localhost:3000/"> Accueil </a>
+                    </div>
 
-</div>
+                    <div>----------------------------------------------</div>
 
-<%- include('footer') %>
+                </li>
+
+                <% })%>
+
+        </ul>
+        <div><a href="http://localhost:3000/maladie/ajouter"> Ajouter une maladie </a></div>
+
+    </div>
+
+    <%- include('footer') %>

@@ -1,0 +1,57 @@
+<%- include('header') %>
+
+    <div>
+
+        <div>
+
+            <br>
+
+            <form action="/maladie/ajouterMaladie" method="POST" enctype="application/x-www-form-urlencoded"
+                id="formulaire">
+
+                <div>
+
+                    <label for="nom"> Nom : </label>
+                    <input type="text" name="nom" id="nom" required>
+
+                </div>
+
+                <br>
+
+            </form>
+
+            <button onclick="verification()">Valider</button>
+
+            <br>
+
+        </div>
+
+        <script>
+
+            function verification() {
+
+                let nom = document.getElementById('nom')
+                let submit = document.getElementById('formulaire')
+
+                //Tests unitaires
+                if (nom.value != "") { //Champs remplis
+                    if (!/^[A-Za-z]+$/.test(nom)) { //Champ prénom composé uniquement de lettres
+                        submit.submit()
+                    }
+                    else {
+                        nom.style.background = "red"
+                        alert("Le nom ne doit pas contenir de caractères spéciaux")
+                    }
+                }
+                if (nom.value == "") {
+                    nom.style.background = "red"
+                    alert("Veuillez remplir le champ")
+                }
+            }
+
+        </script>
+
+        <br>
+
+    </div>
+    <%- include('footer') %>
