@@ -27,7 +27,7 @@ const controllerMaladie = {
 
 		try {
 
-			const data = await modelMaladie.Maladies.afficherMaladies(req)
+			const data = await modelMaladie.Maladies.afficherUneMaladie(req)
 
 			if (data) {
 

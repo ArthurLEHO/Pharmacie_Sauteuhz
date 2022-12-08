@@ -12,10 +12,11 @@ const patientsRoutes = require('./routes/routesPatient.js')
 const medicamentsRoutes = require('./routes/routesMedicament.js')
 const mutuellesRoutes = require('./routes/routesMutuelle.js')
 const maladiesRoutes = require('./routes/routesMaladie.js')
-
+/*
 const key = fs.readFileSync(path.join(__dirname, 'certificate', 'server.key'));
 const cert = fs.readFileSync(path.join(__dirname, 'certificate', 'server.cert'));
 const options = { key, cert };
+*/
 
 
 let app = express()
@@ -25,10 +26,12 @@ app.use(express.static('public'))
 
 app.use(express.json());
 app.use(express.urlencoded());
+app.listen(3000, () => console.log('le serveur Livre d\'Or est prêt.'));
+/*
 https.createServer(options, app).listen(port, () => {
     console.log(`server running HTTPS. Go to https://localhost:${port}`);
-    }); 
-
+}); 
+*/
 //Définition des routes
 app.use('/', mainRoutes)
 app.use('/ordonnance', ordonnancesRoutes)

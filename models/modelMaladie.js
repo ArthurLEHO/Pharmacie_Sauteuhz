@@ -37,6 +37,27 @@ const Maladies = {
         })
     },
 
+    async afficherUneMaladie(req){
+
+        let id = req.params.id
+        let requeteSQL = "SELECT * FROM maladie WHERE Maladie_Id = ?"
+
+        return new Promise((resolve, reject)=>{
+
+            mysqlconnexion.query(requeteSQL, [id], (err, lignes) => {
+
+                if(err){
+
+                    return reject(err)
+
+                }
+
+                return resolve(lignes)
+
+            })
+        })
+    }, 
+
     async ajouterMaladie(req) {
 
         let nom = req.body.nom

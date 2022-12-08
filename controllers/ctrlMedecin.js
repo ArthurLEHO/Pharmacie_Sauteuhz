@@ -35,7 +35,7 @@ const controllerMedecin = {
 
 			}else{
 
-				res.render("medecinMedecin", {dataMedecin: {} })
+				res.render("medecin", {dataMedecin: {} })
 			}
 
 		} catch (error) {

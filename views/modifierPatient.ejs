@@ -1,0 +1,52 @@
+<%- include('header') %>
+
+<div>
+
+    <div <% dataPatient.forEach(function(data){ %>>
+        
+        <br>
+
+        <form action = "/patient/modifierPatient/<%= data.Patient_Id %>" method = "POST" enctype = "application/x-www-form-urlencoded">
+
+            <div>
+
+                <label for = "nom"> Nom : </label>
+                <input type = "text" name = "nom" id = "nom" value = <%= data.Patient_Nom %>>
+
+                <label for = "prenom"> Prénom : </label>
+                <input type = "text" name = "prenom" id = "prenom" value = <%= data.Patient_Prenom %>>
+
+                <label for = "dateNaissance"> Date de naissance : </label>
+                <input type = "text" name = "dateNaissance" id = "dateNaissance" value = <%= data.Patient_DateNaissance %>>
+
+                <label for = "numeroSecurite"> Numéro de Sécurité Sociale : </label>
+                <input type = "text" name = "numeroSecurite" id = "numeroSecurite" value = <%= data.Patient_NumeroSecurite %>>
+
+                <label for = "numero"> Numéro de téléphone : </label>
+                <input type = "text" name = "numero" id = "numero" value = <%= data.Patient_NumeroTelephone %>>
+
+                <label for = "mutuelle"> Mutuelle </label>
+                <select name = "mutuelle" id = "mutuelle">
+
+                    <option value = <%= data.Patient_IdMutuelle %>><%= data.Patient_IdMutuelle %></option>
+                    <option value = "1"> 1 </option>
+                    <option value = "2"> 2 </option>
+                    <option value = "3"> 3 </option>
+                    <option value = "4"> 4 </option> 
+                
+                </select>
+    
+            </div>
+
+            <br>
+            <button type = "submit"><div>Envoyer</div></button>
+    
+        </form>
+
+        <br>
+
+    </div  <% })%>>
+
+</div>
+
+<%- include('footer') %>

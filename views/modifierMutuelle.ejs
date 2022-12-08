@@ -1,0 +1,32 @@
+<%- include('header') %>
+
+<div>
+
+    <div <% dataMutuelle.forEach(function(data){ %>>
+        
+        <br>
+
+        <form action = "/mutuelle/modifierMutuelle/<%= data.Mutuelle_Id %>" method = "POST" enctype = "application/x-www-form-urlencoded">
+
+            <div>
+
+                <label for = "nom"> Nom : </label>
+                <input type = "text" name = "nom" id = "nom" value = <%= data.Mutuelle_Nom %>>
+
+                <label for = "taux"> Taux : </label>
+                <input type = "text" name = "taux" id = "taux" value = <%= data.Mutuelle_Taux %>>
+    
+            </div>
+
+            <br>
+            <button type = "submit"><div>Envoyer</div></button>
+    
+        </form>
+
+        <br>
+
+    </div  <% })%>>
+
+</div>
+
+<%- include('footer') %>

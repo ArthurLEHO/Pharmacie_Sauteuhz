@@ -6,13 +6,20 @@
         
         <li>
             
-            <div>Id : <%= data.Patient_Id %> </div>
+            <div><input type='text' value='<%= data.Patient_Id %>' disabled hidden></div>
             <div>Nom : <%= data.Patient_Nom %> </div>
             <div>Prenom : <%= data.Patient_Prenom %> </div>
             <div>Date de naissance : <%= data.Patient_DateNaissance %> </div>
             <div>Sécurité Sociale : <%= data.Patient_NumeroSecurite %> </div>
-            <div>Telephone : <%= data.Patient_NumeroTelephone %> </div>
+            <div>Téléphone : <%= data.Patient_NumeroTelephone %> </div>
             <div>Mutuelle : <%= data.Patient_IdMutuelle %> </div>
+
+            <div>
+
+                <a href="http://localhost:3000/patient/supprimerPatient/<%=data.Patient_Id%>"> ❌ Supprimer</a> |
+                <a href="http://localhost:3000/patient/modifierPatient/<%=data.Patient_Id%>"> ⚙ Modifier </a>
+
+            </div>
 
             <div>----------------------------------------------</div>
 
@@ -22,7 +29,7 @@
 
     </ul>
 
-    <a href="http://localhost:3000/"> Accueil </a>
+    <div><a href="http://localhost:3000/patient/ajouter"> Ajouter un patient </a></div>
 
 </div>
 

@@ -6,9 +6,16 @@
         
         <li>
             
-            <div>Id : <%= data.Mutuelle_Id %> </div>
+            <div><input type='text' value='<%= data.Mutuelle_Id %>' disabled hidden></div>
             <div>Nom : <%= data.Mutuelle_Nom %> </div>
             <div>Taux : <%= data.Mutuelle_Taux %> </div>
+
+            <div>
+
+                <a href="http://localhost:3000/mutuelle/supprimerMutuelle/<%=data.Mutuelle_Id%>"> ❌ Supprimer </a>
+                <a href="http://localhost:3000/mutuelle/modifierMutuelle/<%=data.Mutuelle_Id%>"> ⚙ Modifier </a>
+
+            </div>
 
             <div>----------------------------------------------</div>
 
@@ -18,7 +25,7 @@
 
     </ul>
 
-    <a href="http://localhost:3000/"> Accueil </a>
+    <div><a href="http://localhost:3000/mutuelle/ajouter"> Ajouter une mutuelle </a></div>
 
 </div>
 
