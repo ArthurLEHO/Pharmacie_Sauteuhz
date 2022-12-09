@@ -1,0 +1,91 @@
+<%- include('header') %>
+
+    <div>
+
+        <div>
+
+            <br>
+
+            <form action="/medicament/ajouterMedicament" method="POST" enctype="application/x-www-form-urlencoded"
+                id="formulaire">
+
+                <div>
+
+                    <label for="nom"> Nom : </label>
+                    <input type="text" name="nom" id="nom" required>
+
+                    <label for="fabricant"> Fabricant : </label>
+                    <input type="text" name="fabricant" id="fabricant" required>
+
+                    <label for="stock"> Stock : </label>
+                    <input type="text" name="stock" id="stock" required>
+
+                    <label for="prix"> Prix : </label>
+                    <input type="float" name="prix" id="prix" required>
+
+                </div>
+
+                <br>
+
+            </form>
+
+            <button onclick="verification()">Ajouter</button>
+
+            <br>
+
+        </div>
+
+        <script>
+
+            function verification() {
+
+                let nom = document.getElementById('nom')
+                let fabricant = document.getElementById('fabricant')
+                let stock = document.getElementById('stock')
+                let prix = document.getElementById('prix')
+                let submit = document.getElementById('formulaire')
+
+
+                //Tests unitaires
+                if (stock.value != "" && nom.value != "" && fabricant.value != "" && prix.value != "") { //Champs remplis
+
+                    if (/^-?\d+$/.test(stock.value)) { //Champ stock composé uniquement de chiffres
+
+                        if (!/^[A-Za-z]+$/.test(nom)) { //Champ nom composé uniquement de lettres
+
+                            if (!/^[A-Za-z]+$/.test(fabricant)) { //Champ fabricant composé uniquement de lettres
+
+                                submit.submit()
+
+                            } else {
+
+                                fabricant.style.background = "red"
+                                alert("Le prénom ne doit pas contenir de caractères spéciaux")
+                            }
+                        } else {
+
+                            nom.style.background = "red"
+                            alert("Le nom ne doit pas contenir de caractères spéciaux")
+                        }
+                    } else {
+
+                    stock.style.background = "red"
+                    alert("Le stock doit être composé que de chiffres")
+                    }
+                
+                } else {
+
+                    if (stock.value == "") { stock.style.background = "red" }
+                    if (nom.value == "") { nom.style.background = "red" }
+                    if (fabricant.value == "") { fabricant.style.background = "red" }
+                    if (prix.value == "") { prix.style.background = "red"}
+                    alert("Veuillez remplir tous les champs")
+                }
+            }
+        </script>
+
+        <br>
+
+    </div>
+
+    <%- include('footer') %>

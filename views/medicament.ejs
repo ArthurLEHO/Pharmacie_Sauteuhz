@@ -12,6 +12,13 @@
             <div>Stock : <%= data.Medicament_Stock %> </div>
             <div>Prix : <%= data.Medicament_Prix %> </div>
 
+            <div>
+
+                <a href="http://localhost:3000/medicament/supprimerMedicament/<%=data.Medicament_Id%>"> ❌ Supprimer</a> |
+                <a href="http://localhost:3000/medicament/modifierMedicament/<%=data.Medicament_Id%>"> ⚙ Modifier </a>
+
+            </div>
+
             <div>----------------------------------------------</div>
 
         </li>
@@ -19,8 +26,8 @@
         <% })%>
 
     </ul>
-
-    <a href="http://localhost:3000/"> Accueil </a>
+    
+    <div><a href="http://localhost:3000/medicament/ajouter"> Ajouter un medicament </a></div>
 
 </div>
 
