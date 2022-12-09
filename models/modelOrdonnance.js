@@ -35,6 +35,99 @@ const Ordonnances = {
 
             })
         })
+    }, 
+
+    async afficherUneOrdonnance(req){
+
+        let id = req.params.id
+        let requeteSQL = "SELECT * FROM ordonnance WHERE Ordonnance_Id = ?"
+
+        return new Promise((resolve, reject)=>{
+
+            mysqlconnexion.query(requeteSQL, [id], (err, lignes) => {
+
+                if(err){
+
+                    return reject(err)
+
+                }
+
+                return resolve(lignes)
+
+            })
+        })
+    }, 
+
+    async ajouterOrdonnance(req){
+
+        let medecin = req.body.medecin
+        let patient = req.body.patient
+        let maladie = req.body.maladie
+        let date = req.body.date
+
+        let requeteSQL = "INSERT INTO ordonnance (Ordonnance_IdMedecin, Ordonnance_IdPatient, Ordonnance_IdMaladie, Ordonnance_Date) VALUES(?,?,?,?)"
+
+        return new Promise((resolve, reject)=>{
+
+            mysqlconnexion.query(requeteSQL, [medecin, patient, maladie, date], (err, lignes, champs) => {
+
+                if(err){
+
+                    return reject(err)
+
+                }
+
+                return resolve(lignes)
+
+            })
+        })
+    },
+
+    async supprimerOrdonnance(req){ 
+        
+        let id = req.params.id
+        let requeteSQL = "DELETE FROM ordonnance WHERE Ordonnance_Id = ?"
+
+        return new Promise((resolve, reject)=>{
+
+            mysqlconnexion.query(requeteSQL, [id], (err, lignes, champs) => {
+
+                if(err){
+
+                    return reject(err)
+
+                }
+
+                return resolve(lignes)
+
+            })
+        })
+    },
+
+    async modifierOrdonnance(req){
+
+        let id = req.params.id
+        let medecin = req.body.medecin
+        let patient = req.body.patient
+        let maladie = req.body.maladie
+        let date = req.body.date
+        
+        let requeteSQL = "UPDATE ordonnance SET Ordonnance_IdMedecin = ?, Ordonnance_IdPatient = ?, Ordonnance_IdMaladie = ?, Ordonnance_Date = ? WHERE Ordonnance_Id = ?"
+        
+        return new Promise((resolve, reject)=>{
+
+            mysqlconnexion.query(requeteSQL, [medecin, patient, maladie, date, id], (err, lignes, champs) => {
+
+                if(err){
+
+                    return reject(err)
+
+                }
+
+                return resolve(lignes)
+
+            })
+        })
     }
 }
 

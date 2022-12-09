@@ -1,0 +1,67 @@
+<%- include('header') %>
+
+<div>
+
+    <div>
+        
+        <br>
+
+        <form action = "/ordonnance/ajouterOrdonnance" method = "POST" enctype = "application/x-www-form-urlencoded" id = "formulaire">
+
+            <div>
+
+                <label for = "medecin"> Médecin </label>
+                <select name = "medecin" id = "medecin" required>
+
+                    <option value = "1"> 1 </option>
+                    <option value = "2"> 2 </option>
+                
+                </select>
+
+                <label for = "patient"> Patient </label>
+                <select name = "patient" id = "patient" required>
+
+                    <option value = "1"> 1 </option>
+                    <option value = "2"> 2 </option>
+                
+                </select>
+
+                <label for = "maladie"> Maladie </label>
+                <select name = "maladie" id = "maladie" required>
+
+                    <option value = "1"> 1 </option>
+                    <option value = "2"> 2 </option>
+                
+                </select>
+                
+                <label for = "date"> Date : </label>
+                <input type = "text" name = "date" id = "date" required>
+
+            </div>
+
+            <br>
+
+        </form>
+
+        <button onclick = "verification()">Envoyer</button>
+
+        <br>
+
+    </div>
+
+    <script>
+
+        function verification(){
+            
+            let submit = document.getElementById('formulaire')
+
+            submit.submit()
+        }
+            
+    </script>
+
+    <br>
+
+</div>
+
+<%- include('footer') %>

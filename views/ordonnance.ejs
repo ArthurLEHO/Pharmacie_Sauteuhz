@@ -6,11 +6,19 @@
         
         <li>
             
-            <div>Ordonnance : <%= data.Ordonnance_Id %> </div>
+            <div><input type='text' value='<%= data.Ordonnance_Id %>' disabled hidden></div>
             <div>Medecin : <%= data.Ordonnance_IdMedecin %> </div>
             <div>Patient : <%= data.Ordonnance_IdPatient %> </div>
             <div>Maladie : <%= data.Ordonnance_IdMaladie %> </div>
             <div>Date : <%= data.Ordonnance_Date %> </div>
+
+            <div>
+
+                <a href="http://localhost:3000/ordonnance/supprimerOrdonnance/<%=data.Ordonnance_Id%>"> ❌ Supprimer</a> |
+                <a href="http://localhost:3000/ordonnance/modifierOrdonnance/<%=data.Ordonnance_Id%>"> ⚙ Modifier </a>
+    
+            </div>
+            
             <div>----------------------------------------------</div>
 
         </li>
@@ -19,7 +27,7 @@
 
     </ul>
 
-    <a href="http://localhost:3000/"> Accueil </a>
+    <div><a href="http://localhost:3000/ordonnance/ajouter"> Ajouter une ordonnance </a></div>
 
 </div>
 

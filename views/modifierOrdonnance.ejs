@@ -1,0 +1,56 @@
+<%- include('header') %>
+
+<div>
+
+    <div <% dataOrdonnance.forEach(function(data){ %>>
+        
+        <br>
+
+        <form action = "/ordonnance/modifierOrdonnance/<%= data.Ordonnance_Id %>" method = "POST" enctype = "application/x-www-form-urlencoded">
+
+            <div>
+
+                <label for = "medecin"> Médecin </label>
+                <select name = "medecin" id = "medecin" required>
+
+                    <option value = <%= data.Ordonnance_IdMedecin %>><%= data.Ordonnance_IdMedecin %></option>
+                    <option value = "1"> 1 </option>
+                    <option value = "2"> 2 </option>
+                
+                </select>
+
+                <label for = "patient"> Patient </label>
+                <select name = "patient" id = "patient" required>
+
+                    <option value = <%= data.Ordonnance_IdPatient %>><%= data.Ordonnance_IdPatient %></option>
+                    <option value = "1"> 1 </option>
+                    <option value = "2"> 2 </option>
+                
+                </select>
+
+                <label for = "maladie"> Maladie </label>
+                <select name = "maladie" id = "maladie" required>
+
+                    <option value = <%= data.Ordonnance_IdMaladie %>><%= data.Ordonnance_IdMaladie %></option>
+                    <option value = "1"> 1 </option>
+                    <option value = "2"> 2 </option>
+                
+                </select>
+                
+                <label for = "date"> Date : </label>
+                <input type = "text" name = "date" id = "date" value = <%= data.Ordonnance_Date %> required>
+    
+            </div>
+
+            <br>
+            <button type = "submit"><div>Envoyer</div></button>
+    
+        </form>
+
+        <br>
+
+    </div  <% })%>>
+
+</div>
+
+<%- include('footer') %>
