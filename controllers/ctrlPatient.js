@@ -1,4 +1,5 @@
 const modelPatient = require('../models/modelPatient');
+const modelMutuelle = require('../models/modelMutuelle')
 
 const controllerPatient = {
 	
@@ -27,15 +28,16 @@ const controllerPatient = {
 
 		try {
 
-			const data = await modelPatient.Patients.afficherUnPatient(req)
+			const data1 = await modelPatient.Patients.afficherUnPatient(req)
+			const data2 = await modelMutuelle.Mutuelles.afficherMutuelles(req)
 
-			if(data){
+			if(data1 && data2){
 
-				res.render("modifierPatient", {dataPatient: data})
+				res.render("modifierPatient", {dataPatient: data1, dataMutuelle: data2})
 
 			}else{
 
-				res.render("patient", {dataPatient: {} })
+				res.render("patient", {dataPatient: {}, dataMutuelle: {} })
 			}
 
 		} catch (error) {

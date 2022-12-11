@@ -30,7 +30,7 @@ const Mutuelles = {
                     return reject(error)
 
                 }
-
+                
                 return resolve(elements)
 
             })

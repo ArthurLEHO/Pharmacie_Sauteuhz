@@ -28,14 +28,16 @@
                 <label for = "mutuelle"> Mutuelle </label>
                 <select name = "mutuelle" id = "mutuelle">
 
-                    <option value = <%= data.Patient_IdMutuelle %>><%= data.Patient_IdMutuelle %></option>
-                    <option value = "1"> 1 </option>
-                    <option value = "2"> 2 </option>
-                    <option value = "3"> 3 </option>
-                    <option value = "4"> 4 </option> 
-                
+                    <option value = <%= data.Patient_IdMutuelle %>> <%= dataMutuelle[data.Patient_IdMutuelle - 1].Mutuelle_Nom %> </option>
+                    
+                    <% dataMutuelle.forEach(function(data){ %>
+
+                        <option value = "<%= data.Mutuelle_Id %>"> <%= data.Mutuelle_Nom %> </option>
+
+                    <%})%>
+
                 </select>
-    
+
             </div>
 
             <br>
