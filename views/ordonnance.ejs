@@ -7,11 +7,13 @@
         <li>
             
             <div><input type='text' value='<%= data.Ordonnance_Id %>' disabled hidden></div>
-            <div>Medecin : <%= data.Ordonnance_IdMedecin %> </div>
-            <div>Patient : <%= data.Ordonnance_IdPatient %> </div>
-            <div>Maladie : <%= data.Ordonnance_IdMaladie %> </div>
-            <div>Date : <%= data.Ordonnance_Date %> </div>
+            <div>Medecin : <%= dataMedecin[data.Ordonnance_IdMedecin - 1].Medecin_Nom %> </div>
+            <div>Patient : <%= dataPatient[data.Ordonnance_IdPatient - 1].Patient_Nom %> </div>
+            <div>Maladie : <%= dataMaladie[data.Ordonnance_IdMaladie].Maladie_Nom %> </div>
+            <div>Date : <%= data.Ordonnance_Date.toLocaleDateString() %> </div>
 
+            <a href="http://localhost:3000/posologie/<%=data.Ordonnance_Id%>"> Voir la posologie </a>
+            <br><br>
             <div>
 
                 <a href="http://localhost:3000/ordonnance/supprimerOrdonnance/<%=data.Ordonnance_Id%>"> ❌ Supprimer</a> |

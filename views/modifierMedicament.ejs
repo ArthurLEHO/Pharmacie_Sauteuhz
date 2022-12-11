@@ -6,28 +6,29 @@
 
             <br>
 
-            <form action="/medicament/modifierMedicament/<%= data.Medicament_Id %>" method="POST"
-                enctype="application/x-www-form-urlencoded">
+            <form action = "/medicament/modifierMedicament/<%= data.Medicament_Id %>" method="POST" enctype="application/x-www-form-urlencoded">
 
                 <div>
 
-                    <label for="nom"> Nom : </label>
-                    <input type="text" name="nom" id="nom" value=<%=data.Medicament_Nom %>>
+                    <label for = "nom"> Nom : </label>
+                    <input type = "text" name = "nom" id = "nom" value = <%= data.Medicament_Nom %>>
 
-                    <label for="fabricant"> Fabricant : </label>
-                    <input type="text" name="fabricant" id="fabricant" value=<%=data.Medicament_Fabricant %>>
+                    <label for = "fabricant"> Fabricant : </label>
+                    <input type = "text" name = "fabricant" id = "fabricant" value = <%= data.Medicament_Fabricant %>>
 
                     <label for="stock"> Stock : </label>
-                    <input type="text" name="stock" id="stock" value=<%=data.Medicament_Stock %>>
+                    <input type = "text" name = "stock" id = "stock" value = <%= data.Medicament_Stock %>>
 
-                    <label for="prix"> Prix : </label>
-                    <input type="float" name="prix" id="prix" value=<%=data.Medicament_Prix %>>
+                    <label for = "prix"> Prix : </label>
+                    <input type = "float" name = "prix" id = "prix" value = <%= data.Medicament_Prix %>>
 
                 </div>
 
                 <br>
                 <button type="submit">
+
                     <div>Envoyer</div>
+
                 </button>
 
             </form>

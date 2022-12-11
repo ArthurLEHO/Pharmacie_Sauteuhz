@@ -9,7 +9,7 @@
             <div><input type='text' value='<%= data.Patient_Id %>' disabled hidden></div>
             <div>Nom : <%= data.Patient_Nom %> </div>
             <div>Prenom : <%= data.Patient_Prenom %> </div>
-            <div>Date de naissance : <%= data.Patient_DateNaissance %> </div>
+            <div>Date de naissance : <%= data.Patient_DateNaissance.toLocaleDateString() %> </div>
             <div>Sécurité Sociale : <%= data.Patient_NumeroSecurite %> </div>
             <div>Téléphone : <%= data.Patient_NumeroTelephone %> </div>
             <div>Mutuelle : <%= data.Patient_IdMutuelle %> </div>

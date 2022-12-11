@@ -1,0 +1,45 @@
+<%- include('header') %>
+
+<div>
+
+    <div <% dataPosologie.forEach(function(data){ %>>
+        
+        <br>
+
+        <form action = "/posologie/modifierPosologie/<%= data.Posologie_Id %>" method = "POST" enctype = "application/x-www-form-urlencoded">
+
+            <div>
+
+                <label for = "medicament"> Medicament </label>
+                <select name = "medicament" id = "medicament">
+
+                    <option value = <%= data.Posologie_IdMedicament %>> <%= dataMedicament[data.Posologie_IdMedicament - 1].Medicament_Nom %> (Actuel) </option>
+                    
+                    <% dataMedicament.forEach(function(data){ %>
+
+                        <option value = "<%= data.Medicament_Id %>"> <%= data.Medicament_Nom %> </option>
+
+                    <%})%>
+
+                </select>
+
+                <label for = "duree"> Durée : </label>
+                <input type = "text" name = "duree" id = "duree" value = <%= data.Posologie_Duree %>>
+
+                <label for = "quantite"> Quantité : </label>
+                <input type = "text" name = "quantite" id = "quantite" value = <%= data.Posologie_QuantiteMedicament %>>
+
+            </div>
+
+            <br>
+            <button type = "submit"><div>Envoyer</div></button>
+    
+        </form>
+
+        <br>
+
+    </div  <% })%>>
+
+</div>
+
+<%- include('footer') %>

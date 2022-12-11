@@ -46,11 +46,22 @@ const controllerPatient = {
 		}
 	},
 
-	redirectionPatient(req, res){
+	async redirectionPatient(req, res){
 
 		try {
 
-			res.render("ajouterPatient")
+			const data = await modelMutuelle.Mutuelles.afficherMutuelles(req)
+
+			if(data){
+
+				res.render("ajouterPatient", {dataMutuelle: data})
+
+			}else{
+
+				console.log("Problème de récupération")
+				res.render("ajouterPatient");
+			}
+
 
 		} catch (error) {
 

@@ -1,4 +1,7 @@
 const modelOrdonnance = require('../models/modelOrdonnance');
+const modelMedecin = require('../models/modelMedecin');
+const modelPatient = require('../models/modelPatient');
+const modelMaladie = require('../models/modelMaladie');
 
 const controllerOrdonnance = {
 	
@@ -6,11 +9,14 @@ const controllerOrdonnance = {
 
 		try {
 
-			const data = await modelOrdonnance.Ordonnances.afficherOrdonnances();
+			const data1 = await modelOrdonnance.Ordonnances.afficherOrdonnances();
+			const data2 = await modelMedecin.Medecins.afficherMedecins()
+			const data3 = await modelPatient.Patients.afficherPatients()
+			const data4 = await modelMaladie.Maladies.afficherMaladies()
 
-			if(data){
+			if(data1 && data2 && data3 && data4){
 
-				res.render("ordonnance", {dataOrdonnance: data})
+				res.render("ordonnance", {dataOrdonnance: data1, dataMedecin: data2, dataPatient: data3, dataMaladie: data4})
 
 			}else{
 

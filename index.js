@@ -12,6 +12,7 @@ const patientsRoutes = require('./routes/routesPatient.js')
 const medicamentsRoutes = require('./routes/routesMedicament.js')
 const mutuellesRoutes = require('./routes/routesMutuelle.js')
 const maladiesRoutes = require('./routes/routesMaladie.js')
+const posologieRoutes = require('./routes/routesPosologie.js')
 /*
 const key = fs.readFileSync(path.join(__dirname, 'certificate', 'server.key'));
 const cert = fs.readFileSync(path.join(__dirname, 'certificate', 'server.cert'));
@@ -40,5 +41,6 @@ app.use('/patient', patientsRoutes)
 app.use('/medicament', medicamentsRoutes)
 app.use('/mutuelle', mutuellesRoutes)
 app.use('/maladie', maladiesRoutes)
+app.use('/posologie', posologieRoutes)
 
 

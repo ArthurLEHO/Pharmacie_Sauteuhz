@@ -17,18 +17,18 @@
                 <input type = "text" name = "prenom" id = "prenom" value = <%= data.Patient_Prenom %>>
 
                 <label for = "dateNaissance"> Date de naissance : </label>
-                <input type = "text" name = "dateNaissance" id = "dateNaissance" value = <%= data.Patient_DateNaissance %>>
+                <input type = "text" name = "dateNaissance" id = "dateNaissance" value = <%= data.Patient_DateNaissance.toLocaleDateString() %>>
 
                 <label for = "numeroSecurite"> Numéro de Sécurité Sociale : </label>
                 <input type = "text" name = "numeroSecurite" id = "numeroSecurite" value = <%= data.Patient_NumeroSecurite %>>
 
                 <label for = "numero"> Numéro de téléphone : </label>
                 <input type = "text" name = "numero" id = "numero" value = <%= data.Patient_NumeroTelephone %>>
-
+                <br><br>
                 <label for = "mutuelle"> Mutuelle </label>
                 <select name = "mutuelle" id = "mutuelle">
 
-                    <option value = <%= data.Patient_IdMutuelle %>> <%= dataMutuelle[data.Patient_IdMutuelle - 1].Mutuelle_Nom %> </option>
+                    <option value = <%= data.Patient_IdMutuelle %>> <%= dataMutuelle[data.Patient_IdMutuelle - 1].Mutuelle_Nom %> (Actuelle) </option>
                     
                     <% dataMutuelle.forEach(function(data){ %>
 

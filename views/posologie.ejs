@@ -1,0 +1,31 @@
+<%- include('header') %>
+
+<div>
+
+    <ul> <% dataPosologie.forEach(function(data){ %>
+        
+        <li>
+            
+            <div><input type='text' value='<%= data.Posologie_IdOrdonnance %>' disabled hidden></div>
+            <div><input type='text' value='<%= data.Posologie_Id %>' disabled hidden></div>
+            <div>Medicament : <%= dataMedicament[data.Posologie_IdMedicament - 1].Medicament_Nom %></div>
+            <div>Durée : <%= data.Posologie_Duree %> mois</div>
+            <div>Quantité : <%= data.Posologie_QuantiteMedicament %> </div>
+
+            <div>
+
+                <a href="http://localhost:3000/posologie/modifierPosologie/<%=data.Posologie_Id%>"> ⚙ Modifier </a>
+
+            </div>
+
+            <div>----------------------------------------------</div>
+
+        </li>
+
+        <% })%>
+
+    </ul>
+
+</div>
+
+<%- include('footer') %>
