@@ -22,8 +22,8 @@
                 <label for = "diplome"> Diplôme </label>
                 <select name = "diplome" id = "diplome" required>
 
-                    <option value = "1"> 1 </option>
-                    <option value = "2"> 2 </option>
+                    <option value = "1"> Valide </option>
+                    <option value = "2"> Invalide </option>
                 
                 </select>
     
@@ -48,47 +48,66 @@
             let numero = document.getElementById('numero')
             let submit = document.getElementById('formulaire')
 
-            
+            let testNombre = /^[0-9]{10,10}$/
+            let testChaine = /^[a-zA-Zàâéêèëîïôöûüç]{2,40}$/
+
+            let message = ""
+
             //Tests unitaires
-            if(numero.value != "" && nom.value != "" && prenom.value != ""){ //Champs remplis
+            if(testNombre.test(numero.value) && testChaine.test(prenom.value) && testChaine.test(nom.value)){
 
-                if(/^-?\d+$/.test(numero.value)){ //Champ numéro composé uniquement de chiffres
-
-                    if(numero.value.length == 10){ //Champ numéro composé de 10 chiffres
-
-                        if(!/^[A-Za-z]+$/.test(nom)){ //Champ nom composé uniquement de lettres
-
-                            if(!/^[A-Za-z]+$/.test(prenom)){ //Champ prénom composé uniquement de lettres
-
-                                submit.submit()
-
-                            }else{
-
-                                prenom.style.background = "red"
-                                alert("Le prénom ne doit pas contenir de caractères spéciaux")
-                            }
-                        }else{
-
-                            nom.style.background = "red"
-                            alert("Le nom ne doit pas contenir de caractères spéciaux")
-                        }
-                    }else{
-
-                        numero.style.background = "red"
-                        alert("Le numéro de téléphone doit comporter exactement 10 chiffres")
-                    }
-                }else{
-
-                    numero.style.background = "red"
-                    alert("Le numéro de téléphone ne doit être composé que de chiffres")
-                }
+                submit.submit()
+            
             }else{
 
-                if(numero.value == ""){numero.style.background = "red"}
-                if(nom.value == ""){nom.style.background = "red"}
-                if(prenom.value == ""){prenom.style.background = "red"}
-                alert("Veuillez remplir tous les champs")
-            }
+                if(!testNombre.test(numero.value)){
+
+                    numero.focus()
+                    numero.style.background = "red"
+
+                    if(numero.value == ""){
+                          
+                        message += "Veuillez entrer un numéro de téléphone.\n "
+                    
+                    }else{
+                        
+                        message += "Le numéro de téléphone ne doit comporter que 10 chiffres.\n "
+
+                    }
+
+                }else if(!testChaine.test(prenom.value)){
+
+                    prenom.focus()
+                    prenom.style.background = "red"
+
+                    if(prenom.value == ""){
+                          
+                        message += "Veuillez entrer un prénom.\n "
+                      
+                    }else{
+                          
+                        message += "Le prénom ne doit pas comporter de caractères spéciaux et ne doit pas dépasser 40 caractères.\n "
+
+                    }
+
+                }else{
+
+                    nom.focus()
+                    nom.style.background = "red"
+
+                    if(nom.value == ""){
+                          
+                        message += "Veuillez entrer un nom.\n "
+                        
+                    }else{
+                            
+                        message += "Le nom ne doit pas comporter de caractères spéciaux et ne doit pas dépasser 40 caractères.\n "
+  
+                    }
+                }
+
+                alert(message)
+            }  
         } 
 
     </script>
