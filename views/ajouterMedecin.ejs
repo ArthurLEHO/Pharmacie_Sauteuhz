@@ -33,38 +33,38 @@
 
         </form>
 
-        <button onclick = "verification()">Envoyer</button>
+        <button onclick = "verificationMedecin()">Envoyer</button>
 
         <br>
 
     </div>
 
     <script>
-
-        function verification(){
+        
+        function verificationMedecin(){
             
             let nom = document.getElementById('nom')
             let prenom = document.getElementById('prenom')
             let numero = document.getElementById('numero')
             let submit = document.getElementById('formulaire')
-
+        
             let testNombre = /^[0-9]{10,10}$/
             let testChaine = /^[a-zA-Zàâéêèëîïôöûüç]{2,40}$/
-
+        
             let message = ""
-
+        
             //Tests unitaires
             if(testNombre.test(numero.value) && testChaine.test(prenom.value) && testChaine.test(nom.value)){
-
+        
                 submit.submit()
             
             }else{
-
+        
                 if(!testNombre.test(numero.value)){
-
+        
                     numero.focus()
                     numero.style.background = "red"
-
+        
                     if(numero.value == ""){
                           
                         message += "Veuillez entrer un numéro de téléphone.\n "
@@ -72,14 +72,14 @@
                     }else{
                         
                         message += "Le numéro de téléphone ne doit comporter que 10 chiffres.\n "
-
+        
                     }
-
+        
                 }else if(!testChaine.test(prenom.value)){
-
+        
                     prenom.focus()
                     prenom.style.background = "red"
-
+        
                     if(prenom.value == ""){
                           
                         message += "Veuillez entrer un prénom.\n "
@@ -87,14 +87,14 @@
                     }else{
                           
                         message += "Le prénom ne doit pas comporter de caractères spéciaux et ne doit pas dépasser 40 caractères.\n "
-
+        
                     }
-
+        
                 }else{
-
+        
                     nom.focus()
                     nom.style.background = "red"
-
+        
                     if(nom.value == ""){
                           
                         message += "Veuillez entrer un nom.\n "
@@ -102,13 +102,13 @@
                     }else{
                             
                         message += "Le nom ne doit pas comporter de caractères spéciaux et ne doit pas dépasser 40 caractères.\n "
-  
+        
                     }
                 }
-
+        
                 alert(message)
             }  
-        } 
+        }
 
     </script>
 

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacie Sauteuhz</title>
+
+</head>
+
+<body>
+
+    <div>
+
+        <div> Connexion à l'espace de travail </div>
+        <br>
+
+        <form action="/accueil" method="POST" enctype="application/x-www-form-urlencoded" id="formulaire">
+
+            <div>
+
+                <label for = "pseudo"> Nom d'utilisateur : </label>
+                <input type = "text" name = "pseudo" id = "pseudo" required>
+
+                <label for = "mdp"> Mot de passe : </label>
+                <input type = "password" name = "mdp" id = "mdp" required>
+
+            </div>
+
+            <br>
+
+            <button type = 'submit'> Connexion </button>
+
+        </form>
+        
+        <div id = "aide"></div>
+        <br>
+        
+        <script>
+
+            function aide(){
+
+                liste = "[LarryS : iwashome], [KongD : didikoko], [MeilleurB : breton], [RudeA : acbdef]"
+                document.getElementById('aide').innerHTML = "La liste des pharmaciens est : " + liste
+            }
+
+        </script>
+
+        <button onclick = "aide()"> Aide</button>
+    </div>
+
+    
+</body>
+</html>
