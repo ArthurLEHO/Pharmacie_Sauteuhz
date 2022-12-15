@@ -5,7 +5,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
-    background: linear-gradient(to right, #054108, #06971a);
+    background: linear-gradient(to right, #06971a, #5DCB82);
     display: flex;
     justify-content: center;
     align-items: center;
