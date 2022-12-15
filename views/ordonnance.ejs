@@ -9,7 +9,7 @@
             <div><input type='text' value='<%= data.Ordonnance_Id %>' disabled hidden></div>
             <div>Medecin : <%= dataMedecin[data.Ordonnance_IdMedecin - 1].Medecin_Nom %> </div>
             <div>Patient : <%= dataPatient[data.Ordonnance_IdPatient - 1].Patient_Nom %> </div>
-            <div>Maladie : <%= dataMaladie[data.Ordonnance_IdMaladie].Maladie_Nom %> </div>
+            <div>Maladie : <%= dataMaladie[data.Ordonnance_IdMaladie - 1].Maladie_Nom %> </div>
             <div>Date : <%= data.Ordonnance_Date.toLocaleDateString() %> </div>
 
             <a href="http://localhost:3000/posologie/<%=data.Ordonnance_Id%>"> Voir la posologie </a>

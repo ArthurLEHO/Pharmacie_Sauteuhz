@@ -50,11 +50,16 @@ const controllerOrdonnance = {
 		}
 	},
 
-	redirectionOrdonnance(req, res){
+	async redirectionOrdonnance(req, res){
+
+		const data1 = await modelOrdonnance.Ordonnances.afficherOrdonnances();
+		const data2 = await modelMedecin.Medecins.afficherMedecins()
+		const data3 = await modelPatient.Patients.afficherPatients()
+		const data4 = await modelMaladie.Maladies.afficherMaladies()
 
 		try {
 
-			res.render("ajouterOrdonnance")
+			res.render("ajouterOrdonnance", {dataOrdonnance: data1, dataMedecin: data2, dataPatient: data3, dataMaladie: data4})
 
 		} catch (error) {
 

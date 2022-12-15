@@ -13,24 +13,33 @@
                 <label for = "medecin"> Médecin </label>
                 <select name = "medecin" id = "medecin" required>
 
-                    <option value = "1"> 1 </option>
-                    <option value = "2"> 2 </option>
+                    <% dataMedecin.forEach(function(data){ %>
+
+                        <option value = "<%= data.Medecin_Id %>"> <%= data.Medecin_Nom %> </option>
+
+                    <%})%>
                 
                 </select>
 
                 <label for = "patient"> Patient </label>
                 <select name = "patient" id = "patient" required>
 
-                    <option value = "1"> 1 </option>
-                    <option value = "2"> 2 </option>
+                    <% dataPatient.forEach(function(data){ %>
+
+                        <option value = "<%= data.Patient_Id %>"> <%= data.Patient_Nom %> </option>
+
+                    <%})%>
                 
                 </select>
 
                 <label for = "maladie"> Maladie </label>
                 <select name = "maladie" id = "maladie" required>
 
-                    <option value = "1"> 1 </option>
-                    <option value = "2"> 2 </option>
+                    <% dataMaladie.forEach(function(data){ %>
+
+                        <option value = "<%= data.Maladie_Id %>"> <%= data.Maladie_Nom %> </option>
+
+                    <%})%>
                 
                 </select>
                 
@@ -53,9 +62,20 @@
 
         function verification(){
             
+            let regex = /^\d{4}[\/]?((((0[13578])|(1[02]))[\/]?(([0-2][0-9])|(3[01])))|(((0[469])|(11))[\/]?(([0-2][0-9])|(30)))|(02[\/]?[0-2][0-9]))$/
             let submit = document.getElementById('formulaire')
+            let date = document.getElementById('date').value
 
-            submit.submit()
+            if(regex.test(date)){
+
+                submit.submit()
+
+            }else{
+
+                alert("La date doit être au format YYYY/MM/DD")
+            }
+
+            
         }
             
     </script>
