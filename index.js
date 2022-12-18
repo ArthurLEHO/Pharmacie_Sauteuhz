@@ -28,7 +28,7 @@ app.use(express.static(__dirname + '/public'))
 
 app.use(express.json());
 app.use(express.urlencoded());
-app.listen(3000, () => console.log('le serveur Livre d\'Or est prêt.'));
+app.listen(3000, () => console.log('le serveur Pharmacie est prêt.'));
 /*
 https.createServer(options, app).listen(port, () => {
     console.log(`server running HTTPS. Go to https://localhost:${port}`);

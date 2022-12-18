@@ -1,0 +1,26 @@
+.infoAccueil {
+    width: 450px;
+    background: rgba(52, 58, 54, .5);
+    padding: 4rem;
+    border-radius: 10px;
+    position: relative;
+    margin-top: 250px;
+    margin-left: 700px;
+}
+
+.infoAccueil::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:rgb(34, 113, 255);
+    transform: rotate(-6deg);
+    border-radius: 10px;
+    z-index: -1;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
